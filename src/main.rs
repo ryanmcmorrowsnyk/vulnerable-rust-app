@@ -149,7 +149,7 @@ async fn proxy(req: HttpRequest) -> Result<HttpResponse> {
     let url = params.get("url").map(|s| s.as_str()).unwrap_or("");
 
     // Vulnerable: No URL validation
-    let response = reqwest::blocking::get(url);
+    let response = reqwest::get(url);
 
     match response {
         Ok(resp) => {
